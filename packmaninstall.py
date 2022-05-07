@@ -20,13 +20,14 @@ arr = ['PSG_PVE_Site_Detection_Package', 'PSG_PVE_Path_modification_Package', 'P
 
 def subprocess_cmd(command, package):
 	process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
-	proc_stdout = process.communicate()[0].strip()
+	proc_stdout = process.communicate()[0]
 	#print(proc_stdout)
 	return_code = process.poll()
 	while True:
 		if return_code is not None:
 			now = datetime.now()
-			print(package, "installation finished at", now)
+			print("==========", package, "==========")
+			print("installation finished at", now)
 			break
 	return
 
